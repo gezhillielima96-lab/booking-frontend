@@ -1,0 +1,34 @@
+.custom-navbar {
+     background: linear-gradient(90deg, #003580 0%, #00224f 100%); 
+}
+.navbar-icon { 
+    color: #00BAF2; 
+}
+.mx-auto {
+  all: unset;
+  display: flex; 
+  justify-content: center; 
+}
+.nav-fix ul { 
+    display: flex; 
+    list-style: none; 
+    gap: 25px; 
+    margin: 0; 
+    padding: 0; }
+.nav-fix ul li a { 
+    color: white; 
+    text-decoration: none; 
+    font-weight: 500; 
+    font-size: 1.1rem; 
+    transition: 0.3s; 
+    opacity: 0.9; 
+}
+.nav-fix ul li a:hover { 
+    color: #00BAF2; 
+    opacity: 1; 
+}
+.btn-regjistro {
+     background-color: #00BAF2; 
+     border: none; 
+     font-weight: bold; 
+    }

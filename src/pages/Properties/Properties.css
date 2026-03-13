@@ -1,0 +1,37 @@
+.search-container {
+    transition: all 0.3s ease;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.search-input:focus {
+    box-shadow: none;
+    border-color: #003580;
+}
+
+.search-icon-box {
+    border-top-left-radius: 50px !important;
+    border-bottom-left-radius: 50px !important;
+}
+
+.search-input {
+    border-top-right-radius: 50px !important;
+    border-bottom-right-radius: 50px !important;
+}
+
+.properties-title {
+    color: #003580;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.properties-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 60px;
+    height: 4px;
+    background-color: #006ce4;
+    border-radius: 2px;
+}

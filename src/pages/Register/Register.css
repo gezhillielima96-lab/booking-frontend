@@ -1,0 +1,28 @@
+.register-card {
+    border-radius: 20px;
+}
+
+.register-card .form-control {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    padding: 10px 15px;
+    border-radius: 8px;
+}
+
+.register-card .form-control:focus {
+    background-color: #fff;
+    border-color: #003580;
+    box-shadow: none;
+}
+
+.register-card .btn-primary {
+    background-color: #003580;
+    border: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.register-card .btn-primary:hover {
+    background-color: #00265a;
+    transform: translateY(-1px);
+}

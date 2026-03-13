@@ -1,0 +1,47 @@
+.booking-history-card {
+    background: #fff;
+    border-radius: 12px;
+    border-left: 5px solid #003580 !important;
+}
+
+.label-small {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #6c757d;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.underline-blue {
+    width: 60px;
+    height: 4px;
+    background: #003580;
+    margin-top: 5px;
+}
+
+.status-badge {
+    font-size: 0.7rem;
+    padding: 5px 10px;
+}
+
+.btn-delete-booking {
+    background: transparent;
+    color: #dc3545;
+    border: 1px solid #dc3545;
+    padding: 8px 15px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+.btn-delete-booking:hover {
+    background: #dc3545;
+    color: white;
+}
+
+.no-bookings {
+    background: #f8f9fa;
+    border-radius: 15px;
+    border: 2px dashed #dee2e6;
+}

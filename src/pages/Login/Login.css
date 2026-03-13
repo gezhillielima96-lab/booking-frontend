@@ -1,0 +1,27 @@
+.login-card {
+    border-radius: 15px;
+    background: #ffffff;
+}
+
+.login-card .form-control {
+    border-radius: 8px;
+    padding: 10px 15px;
+    border: 1px solid #dee2e6;
+}
+
+.login-card .form-control:focus {
+    border-color: #003580;
+    box-shadow: none;
+}
+
+.login-card .btn-primary {
+    background-color: #003580;
+    border: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.login-card .btn-primary:hover {
+    background-color: #00265a;
+    transform: translateY(-1px);
+}

@@ -1,0 +1,17 @@
+/* Kjo rregullon vetëm listën brenda Navbarit pa ndryshuar skedarin .js */
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+}
+content-wrap {
+  min-height: 80vh;
+}

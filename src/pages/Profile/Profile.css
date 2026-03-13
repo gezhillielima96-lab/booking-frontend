@@ -1,0 +1,33 @@
+.profile-card-custom {
+    border-radius: 20px;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+.profile-card-custom .form-control {
+    border-radius: 8px;
+    padding: 10px 15px;
+    border: 1px solid #dee2e6;
+    font-size: 0.95rem;
+}
+
+.profile-card-custom .form-control:focus {
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.1);
+    border-color: #0d6efd;
+}
+
+.profile-card-custom h2 {
+    color: #333;
+    letter-spacing: -0.5px;
+}
+
+.profile-card-custom .btn-primary {
+    border-radius: 8px;
+    background-color: #0d6efd;
+    transition: 0.3s;
+}
+
+.profile-card-custom .btn-primary:hover {
+    background-color: #0b5ed7;
+    transform: translateY(-1px);
+}

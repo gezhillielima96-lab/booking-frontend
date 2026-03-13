@@ -1,0 +1,23 @@
+.room-card-selection {
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.room-card-selection:hover {
+    background-color: #f8f9fa;
+    transform: scale(1.01);
+}
+
+.sticky-top {
+    z-index: 1000;
+}
+
+/* Stilimi i kalendarit brenda kartës */
+.react-datepicker {
+    border: none !important;
+    font-family: inherit !important;
+}
+
+.calendar-wrapper .react-datepicker__month-container {
+    width: 100%;
+}

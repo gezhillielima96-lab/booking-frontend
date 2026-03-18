@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Card, Row, Col, Badge, Button, Modal, Form } from 'react-bootstrap';
+import { Container, Card, Row, Col, Badge, Button, Modal } from 'react-bootstrap';
 import axios from 'axios';
 
 function MyBookings() {
@@ -7,7 +7,7 @@ function MyBookings() {
   const [showModal, setShowModal] = useState(false);
   const [selectedB, setSelectedB] = useState(null);
   const [nota, setNota] = useState(5);
-  const [komenti, setKomenti] = useState('');
+  const [komenti] = useState('');
 
   const user = JSON.parse(localStorage.getItem('user'));
   const token = localStorage.getItem('token'); 

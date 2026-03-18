@@ -9,7 +9,9 @@ function Notifications() {
   const user = JSON.parse(localStorage.getItem('user'));
   const token = localStorage.getItem('token');
 
-  const fetchNotifications = async () => {
+  
+  useEffect(() => {
+    const fetchNotifications = async () => {
     try {
       const url = user.role === 'admin' 
         ? 'http://localhost:5000/api/admin/notifications' 
@@ -23,7 +25,9 @@ function Notifications() {
     }
   };
 
-  useEffect(() => { fetchNotifications(); }, []);
+  fetchNotifications();
+
+   }, []);
 
   const handleRead = async (id) => {
     try {

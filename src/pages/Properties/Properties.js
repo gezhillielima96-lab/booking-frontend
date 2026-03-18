@@ -13,7 +13,6 @@ function Properties() {
   useEffect(() => {
     const fetchAll = async () => {
       try {
-        // Sigurohu që kjo rrugë /all thërret getProperties në Backend
         const response = await API.get('/all');
         setTeGjitha(response.data);
       } catch (err) {
@@ -25,8 +24,6 @@ function Properties() {
     };
     fetchAll();
   }, []);
-
-  // Filtri për kërkimin
   const hoteletEFiltruara = teGjitha.filter(hotel => 
     hotel.lokacioni?.toLowerCase().includes(kerko.toLowerCase()) || 
     hotel.emri_prones?.toLowerCase().includes(kerko.toLowerCase())
@@ -59,20 +56,18 @@ function Properties() {
           <p className="mt-2 text-muted">Duke ngarkuar pronat...</p>
         </div>
       ) : (
-        <Row className="g-4">
-          {hoteletEFiltruara.length > 0 ? (
-            hoteletEFiltruara.map((hotel) => (
-              <Col key={hotel.id} xs={12} sm={6} md={4} lg={3}>
-                <PropertyCard 
-                  id={hotel.id}
-                  emri={hotel.emri_prones}
-                  vendndodhja={hotel.lokacioni}
-                  cmimi={hotel.cmimi}
-                  // NDRYSHIMI KYÇ: Përdorim .foto sepse ashtu vjen nga SQL (AS foto)
-                  foto={hotel.foto} 
-                />
-              </Col>
-            ))
+<Row className="g-4">
+  {hoteletEFiltruara.length > 0 ? (
+    hoteletEFiltruara.map((hotel) => (
+      <Col key={hotel.id} xs={12} sm={6} md={4} lg={3}>
+        <PropertyCard 
+          id={hotel.id}
+          emri={hotel.emri_prones}
+          vendndodhja={hotel.lokacioni}
+          foto={hotel.foto} 
+        />
+      </Col>
+    ))
           ) : (
             <Col className="text-center py-5 w-100">
               <i className="bi bi-building-exclamation display-1 text-muted opacity-25"></i>

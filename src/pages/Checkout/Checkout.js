@@ -16,10 +16,8 @@ function Checkout() {
 
   const user = JSON.parse(localStorage.getItem('user'));
 
-  // Ndajmë fotot për Slider
   const fotoArray = room?.fotot ? room.fotot.split(',') : [];
 
-  // --- RREGULLIMI PER BERJEN GRI TE TE GJITHA DATAVE (Kodi yt origjinal) ---
   const reservedIntervals = room?.bookedDates?.map(range => {
     const s = new Date(range.data_hyrjes);
     const e = new Date(range.data_daljes);
@@ -66,7 +64,6 @@ function Checkout() {
   return (
     <Container className="py-5">
       <Row className="g-4">
-        {/* KOLONA E MAJTË: Logjika e Rezervimit dhe Pagesës (Kodi yt) */}
         <Col md={7}>
           <Card className="p-4 shadow-sm border-0 h-100">
             <h4 className="fw-bold mb-4">Detajet e Rezervimit</h4>
@@ -113,11 +110,8 @@ function Checkout() {
             </Button>
           </Card>
         </Col>
-
-        {/* KOLONA E DJATHTË: Përmbledhja me SLIDER (Dizajni i ri) */}
         <Col md={5}>
           <Card className="bg-dark text-white border-0 h-100 overflow-hidden shadow">
-            {/* Slideri i fotove */}
             {fotoArray.length > 0 ? (
               <Carousel indicators={fotoArray.length > 1} interval={4000}>
                 {fotoArray.map((path, idx) => (
@@ -147,7 +141,7 @@ function Checkout() {
               </div>
               <div className="mb-3">
                 <small className="text-uppercase text-light opacity-50">Kapaciteti</small>
-                <p className="mb-2">{room.kapaciteti} Persona</p>
+                <p className="mb-2">{room.kapaciteti} Person/a</p>
               </div>
               
               <hr className="border-secondary" />

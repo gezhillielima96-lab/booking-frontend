@@ -2,22 +2,68 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Card, Button, Form } from 'react-bootstrap';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { useLocation, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './Booking.css';
 
 function Booking() {
+  const location = useLocation();
+  const navigate = useNavigate();
   
+  
+  const { propertyId, roomId, price } = location.state || {};
+  const user = JSON.parse(localStorage.getItem('user'));
+  const token = localStorage.getItem('token'); 
+
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [nrPersonave, setNrPersonave] = useState(1);
-  const [emri, setEmri] = useState("");
-  const [mbiemri, setMbiemri] = useState("");
 
-  const handleBooking = (e) => {
+
+ const handleBooking = async (e) => {
     e.preventDefault();
-   
-    console.log("Rezervimi i ri:", { emri, mbiemri, startDate, endDate, nrPersonave });
-    alert("Rezervimi u dërgua (Logjika e backend-it do të shtohet së shpejti)");
-  };
+    
+    
+    if (!user || !user.id) {
+        alert("Ju lutem logohuni për të kryer rezervimin!");
+        return;
+    }
+
+    
+    if (!propertyId || !roomId) {
+        alert("Gabim: Të dhënat e pronës ose dhomës mungojnë.");
+        return;
+    }
+
+    
+    const bookingData = {
+        user_id: user.id,
+        property_id: propertyId,
+        room_id: roomId,
+        data_hyrjes: startDate ? (typeof startDate.toISOString === 'function' ? startDate.toISOString().split('T')[0] : startDate) : null,
+        data_daljes: endDate ? (typeof endDate.toISOString === 'function' ? endDate.toISOString().split('T')[0] : endDate) : null,
+        totali_pageses: price || 0,
+        full_name: `${user?.emri || 'Klient'} ${user?.mbiemri || ''}`.trim()
+    };
+
+    try {
+        const response = await axios.post('http://localhost:5000/api/process', bookingData, {
+            headers: { Authorization: `Bearer ${token}` }
+        });
+
+        if (response.data.success) {
+            alert("Rezervimi u krye me sukses!");
+            navigate('/my-bookings');
+        }
+    } catch (err) {
+        console.error("Gabim gjatë rezervimit:", err);
+       
+        const errorMsg = err.response?.data?.message || "Rezervimi dështoi. Provoni përsëri.";
+        alert(errorMsg);
+    }
+};
+
+
 
   return (
     <Container className="py-5">
@@ -26,29 +72,6 @@ function Booking() {
           <Card className="shadow border-0 p-4" style={{ borderRadius: '15px' }}>
             <h2 className="fw-bold mb-4">Plotësoni Rezervimin Tuaj</h2>
             <Form onSubmit={handleBooking}>
-              <Row>
-                <Col md={6} className="mb-3">
-                  <Form.Label className="fw-bold">Emri</Form.Label>
-                  <Form.Control 
-                    type="text" 
-                    placeholder="Shkruani emrin" 
-                    value={emri}
-                    onChange={(e) => setEmri(e.target.value)}
-                    required 
-                  />
-                </Col>
-                <Col md={6} className="mb-3">
-                  <Form.Label className="fw-bold">Mbiemri</Form.Label>
-                  <Form.Control 
-                    type="text" 
-                    placeholder="Shkruani mbiemrin" 
-                    value={mbiemri}
-                    onChange={(e) => setMbiemri(e.target.value)}
-                    required 
-                  />
-                </Col>
-              </Row>
-
               <Row className="mb-3">
                 <Col md={6}>
                   <Form.Label className="fw-bold d-block">Data e Hyrjes</Form.Label>

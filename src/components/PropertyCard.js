@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 import './PropertyCard.css';
 
 function PropertyCard({ id, emri, vendndodhja, cmimi, foto }) {
-  // Krijojmë URL-në e plotë të fotos
-  // Nëse foto ekziston, i shtojmë adresën e serverit, përndryshe mbetet null
+  
   const fullImageUrl = foto ? `http://localhost:5000${foto}` : null;
 
   return (
@@ -33,19 +32,23 @@ function PropertyCard({ id, emri, vendndodhja, cmimi, foto }) {
         </Card.Text>
         
         <div className="mt-auto d-flex justify-content-between align-items-center">
-          <div>
-            <span className="fw-bold text-primary fs-5">
-              {cmimi === "Me marrëveshje" ? cmimi : `€${cmimi}`}
-            </span>
-            {cmimi !== "Me marrëveshje" && <small className="text-muted">/natë</small>}
-          </div>
+          
+          
+          {cmimi && (
+            <div>
+              <span className="fw-bold text-primary fs-5">
+                {cmimi === "Me marrëveshje" ? cmimi : `€${cmimi}`}
+              </span>
+              {cmimi !== "Me marrëveshje" && <small className="text-muted">/natë</small>}
+            </div>
+          )}
         
           <Button 
             as={Link} 
             to={`/property-details/${id}`} 
             variant="outline-primary" 
             size="sm" 
-            className="rounded-pill px-3"
+            className="rounded-pill px-3 ms-auto" 
           >
             Detajet
           </Button>

@@ -25,7 +25,7 @@ function AddProperty() {
         try {
             const res = await API.post('/properties/add', formData);
             setMessage(res.data.message);
-            // Pastro formën pas suksesit
+            
             setFormData({ emri_prones: '', pershkrimi: '', lokacioni: '', kategoria: 1, cmimi: '' });
         } catch (err) {
             setError(err.response?.data?.message || "Gabim gjatë lidhjes me serverin.");

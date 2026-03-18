@@ -1,20 +1,25 @@
 .custom-navbar {
-     background: linear-gradient(90deg, #003580 0%, #00224f 100%); 
+    background: linear-gradient(90deg, #003580 0%, #00224f 100%); 
 }
+
 .navbar-icon { 
     color: #00BAF2; 
 }
+
 .mx-auto {
-  all: unset;
-  display: flex; 
-  justify-content: center; 
+    all: unset;
+    display: flex; 
+    justify-content: center; 
 }
+
 .nav-fix ul { 
     display: flex; 
     list-style: none; 
     gap: 25px; 
     margin: 0; 
-    padding: 0; }
+    padding: 0; 
+}
+
 .nav-fix ul li a { 
     color: white; 
     text-decoration: none; 
@@ -23,12 +28,51 @@
     transition: 0.3s; 
     opacity: 0.9; 
 }
+
 .nav-fix ul li a:hover { 
     color: #00BAF2; 
     opacity: 1; 
 }
+
 .btn-regjistro {
-     background-color: #00BAF2; 
-     border: none; 
-     font-weight: bold; 
-    }
+    background-color: #00BAF2; 
+    border: none; 
+    font-weight: bold; 
+    color: white;
+}
+
+.no-caret::after {
+    display: none;
+}
+
+
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    font-size: 0.65rem;
+    padding: 3px 6px;
+    border: 2px solid #00224f; 
+}
+
+
+.notification-dropdown {
+    width: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.notification-scroll {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.notification-dropdown .dropdown-item {
+    white-space: normal;
+    background-color: white;
+}
+
+.notification-dropdown .dropdown-item:hover {
+    background-color: #f8f9fa;
+}

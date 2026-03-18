@@ -1,5 +1,7 @@
-import { Navbar, Container, Button, Nav } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Navbar, Container, Button, Nav, Badge } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import Navigimi from './Navigimi'; 
 import './Navbar.css';
 
@@ -7,6 +9,30 @@ function NavigationBar() {
   const navigate = useNavigate();
   const token = localStorage.getItem('token');
   const user = JSON.parse(localStorage.getItem('user'));
+  const [notifications, setNotifications] = useState([]);
+
+  const fetchNotifications = async () => {
+    try {
+      if (!token || user?.role !== 'admin') return; 
+
+      const url = `http://localhost:5000/api/admin/notifications`;
+      const res = await axios.get(url, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+      if (res.data) setNotifications(res.data);
+    } catch (err) {
+      console.log("Gabim te zilja:", err.message);
+      setNotifications([]); 
+    }
+  };
+
+  useEffect(() => {
+    if (user?.role === 'admin') {
+      fetchNotifications();
+      const interval = setInterval(fetchNotifications, 30000);
+      return () => clearInterval(interval);
+    }
+  }, [user?.id, token]);
 
   const handleLogout = () => {
     localStorage.clear();
@@ -35,17 +61,35 @@ function NavigationBar() {
             {!token ? (
               <>
                 <Link to="/login" className="nav-link text-white fw-medium">Log In</Link>
-                <Button as={Link} to="/register" className="rounded-1 px-4 py-2 btn-regjistro">
+                <Button as={Link} to="/register" className="rounded-1 px-4 py-2 btn-regjistro text-white">
                   Regjistrohu
                 </Button>
               </>
             ) : (
               <>
-                <span className="text-white small">Përshëndetje, {user?.emri}</span>
-                <Link to="/profile" className="text-white fs-4 me-2">
+                {user?.role === 'admin' && (
+                  <Link to="/notifications" className="position-relative me-2 text-white text-decoration-none">
+                    <i className="bi bi-bell fs-4"></i>
+                    {notifications.length > 0 && (
+                      <Badge 
+                        pill 
+                        bg="danger" 
+                        className="position-absolute" 
+                        style={{ top: '-5px', right: '-8px', fontSize: '0.65rem' }}
+                      >
+                        {notifications.length}
+                      </Badge>
+                    )}
+                  </Link>
+                )}
+
+                <span className="text-white small d-none d-md-block">Përshëndetje, {user?.emri}</span>
+                
+                <Link to="/profile" className="text-white fs-4">
                   <i className="bi bi-person-circle"></i>
                 </Link>
-                <Button variant="outline-light" size="sm" onClick={handleLogout} className="rounded-1">
+
+                <Button variant="outline-light" size="sm" onClick={handleLogout} className="rounded-1 ms-2">
                   Dil
                 </Button>
               </>

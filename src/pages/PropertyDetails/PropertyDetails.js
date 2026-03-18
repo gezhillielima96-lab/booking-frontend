@@ -70,11 +70,7 @@ function PropertyDetails() {
               </Col>
             );
         })}
-      </Row>
-
-      <h4 className="fw-bold mb-4">Eksperiencat e vizitorëve</h4>
-      <Row>
-          {reviews.length > 0 ? reviews.map((rev) => (
+       {reviews.length > 0 ? reviews.map((rev) => (
               <Col md={6} key={rev.id} className="mb-3">
                   <Card className="border-0 shadow-sm p-3 h-100 bg-light">
                       <div className="d-flex justify-content-between">

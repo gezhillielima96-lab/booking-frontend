@@ -16,6 +16,7 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register/Register'; 
 import AddProperty from './pages/Admin/addProperty';
 import Checkout from './pages/Checkout/Checkout';
+import NotificationsPage from './pages/Notifications/NotificationsPage';
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
         <Route path="/admin" element={<Admin />} />
         <Route path="/add-property" element={<AddProperty />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/notifications" element={<NotificationsPage />} />
       </Routes>
       
       <Footer />

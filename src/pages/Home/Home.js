@@ -27,7 +27,7 @@ function Home() {
     <>
       <div className="hero">
         <Container>
-          <h1 className="display-3 fw-bold text-white">Gjeni shtëpinë tuaj të ardhshme</h1>
+          <h1 className="display-3 fw-bold text-white">Gjeni rezervimin tuaj të ardhëshëm</h1>
           <p className="lead text-white">Eksploroni ofertat më të mira për pushimet tuaja këtë sezon.</p>
         </Container>
       </div>
@@ -37,22 +37,18 @@ function Home() {
         
         {loading && <div className="text-center py-5"><Spinner animation="border" variant="primary" /></div>}
         {error && <Alert variant="danger">{error}</Alert>}
-
-        <Row className="g-4">
-          {ofertat.length > 0 ? (
-            // Marrim vetëm 4 të parat
-            ofertat.slice(0, 4).map((prop) => (
-              <Col key={prop.id} xs={12} sm={6} md={4} lg={3}>
-                <PropertyCard 
-                  id={prop.id} 
-                  emri={prop.emri_prones} 
-                  vendndodhja={prop.lokacioni} 
-                  cmimi={prop.cmimi}
-                  // NDRYSHIMI KËTU: hotel.foto në vend të hotel.foto_url
-                  foto={prop.foto} 
-                />
-              </Col>
-            ))
+<Row className="g-4">
+  {ofertat.length > 0 ? (
+    ofertat.slice(0, 4).map((prop) => (
+      <Col key={prop.id} xs={12} sm={6} md={4} lg={3}>
+        <PropertyCard 
+          id={prop.id} 
+          emri={prop.emri_prones} 
+          vendndodhja={prop.lokacioni} 
+          foto={prop.foto} 
+        />
+      </Col>
+    ))
           ) : !loading && (
             <p className="text-muted text-center py-5">Nuk ka prona për të shfaqur.</p>
           )}

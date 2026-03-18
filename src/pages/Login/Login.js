@@ -40,7 +40,7 @@ function Login() {
       window.location.reload();
 
     } catch (err) {
-      console.error("Gabim gjatë loginit:", err);
+      console.error("Gabim gjatë logimit:", err);
       setError(err.response?.data?.message || "Email ose Fjalëkalim i gabuar!");
     } finally {
       setLoading(false);
@@ -56,7 +56,7 @@ function Login() {
               <div className="text-center mb-4">
                 <i className="bi bi-shield-lock display-4 text-primary"></i>
                 <h3 className="fw-bold mt-2">Mirësevini</h3>
-                <p className="text-muted small">Kyçuni në llogarinë tuaj</p>
+                <p className="text-muted small">Hyni në llogarinë tuaj</p>
               </div>
 
               {error && <Alert variant="danger" className="py-2 small">{error}</Alert>}
@@ -67,7 +67,7 @@ function Login() {
                   <Form.Control 
                     name="email" 
                     type="email" 
-                    placeholder="email@shembull.com" 
+                    placeholder="email" 
                     onChange={handleChange} 
                     required 
                   />
@@ -78,7 +78,7 @@ function Login() {
                   <Form.Control 
                     name="password" 
                     type="password" 
-                    placeholder="********" 
+                    placeholder="password" 
                     onChange={handleChange} 
                     required 
                   />
@@ -90,7 +90,7 @@ function Login() {
                   className="w-100 py-2 fw-bold" 
                   disabled={loading}
                 >
-                  {loading ? "Duke u kyçur..." : "Hyr"}
+                  {loading ? "Duke u loguar..." : "Hyr"}
                 </Button>
 
                 <div className="text-center mt-4">

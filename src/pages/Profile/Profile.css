@@ -1,33 +1,100 @@
-.profile-card-custom {
-    border-radius: 20px;
-    background-color: #ffffff;
-    overflow: hidden;
+/* Sfondi kreativ me gradient dhe lëvizje të lehtë */
+.glass-background {
+    background: linear-gradient(135deg, #004e92 0%, #000428 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
 }
 
-.profile-card-custom .form-control {
-    border-radius: 8px;
-    padding: 10px 15px;
-    border: 1px solid #dee2e6;
-    font-size: 0.95rem;
+/* Karta me efekt xhami */
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
 }
 
-.profile-card-custom .form-control:focus {
-    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.1);
-    border-color: #0d6efd;
+.glass-header {
+    background: transparent;
+    padding: 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.profile-card-custom h2 {
-    color: #333;
-    letter-spacing: -0.5px;
+.bg-white-glass {
+    background: rgba(255, 255, 255, 0.95); /* Këtu të dhënat janë të qarta */
+    border-radius: 0 0 25px 25px;
 }
 
-.profile-card-custom .btn-primary {
-    border-radius: 8px;
-    background-color: #0d6efd;
+.form-subtitle {
+    color: #004e92;
+    font-weight: 800;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.glass-label {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.glass-input {
+    border: 1.5px solid #eee;
+    border-radius: 12px;
+    padding: 12px 15px;
+    transition: all 0.3s ease;
+}
+
+.glass-input:focus {
+    border-color: #004e92;
+    box-shadow: 0 0 0 4px rgba(0, 78, 146, 0.1);
+}
+
+.locked {
+    background-color: #f9f9f9 !important;
+    border-style: dashed;
+}
+
+.glass-submit-btn {
+    background: #004e92;
+    border: none;
+    border-radius: 12px;
+    padding: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
     transition: 0.3s;
 }
 
-.profile-card-custom .btn-primary:hover {
-    background-color: #0b5ed7;
-    transform: translateY(-1px);
+.glass-submit-btn:hover {
+    background: #003666;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 78, 146, 0.2);
+}
+
+.logout-glass-btn {
+    color: #fff !important;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.85rem;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 8px 20px;
+    border-radius: 10px;
+}
+
+.logout-glass-btn:hover {
+    background: rgba(255,255,255,0.1);
+    color: #ff4d4d !important;
+}
+
+.loader-full {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000428;
 }

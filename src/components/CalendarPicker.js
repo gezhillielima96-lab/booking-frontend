@@ -7,7 +7,7 @@ function CalendarPicker({ onDateChange, bookedDates = [] }) {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
-  // Kthejmë datat e rezervuara në formatin që kërkon DatePicker
+  
   const excludeIntervals = bookedDates.map(range => ({
     start: new Date(range.data_hyrjes),
     end: new Date(range.data_daljes)
@@ -45,7 +45,7 @@ function CalendarPicker({ onDateChange, bookedDates = [] }) {
         selectsRange
         inline
         minDate={new Date()}
-        excludeDateIntervals={excludeIntervals} // Ky rresht bllokon datat e zëna
+        excludeDateIntervals={excludeIntervals} 
       />
     </div>
   );

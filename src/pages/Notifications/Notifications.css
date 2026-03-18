@@ -1,0 +1,97 @@
+.notifications-page {
+    max-width: 850px;
+}
+
+.main-title {
+    background: linear-gradient(45deg, #2c3e50, #4a5568);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+.animate-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUp 0.4s ease forwards;
+    animation-delay: var(--delay);
+}
+
+@keyframes slideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.notif-card-custom {
+    border: none !important;
+    background: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(10px);
+    border-radius: 16px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-left: 5px solid transparent !important;
+}
+
+.notif-card-custom:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    background: white !important;
+}
+
+
+.notif-card-custom:has(.type-badge) {
+    border-left-color: rgba(0,0,0,0.1) !important;
+}
+
+.icon-wrapper {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+
+.author-name {
+    color: #e53e3e; 
+    font-weight: 700;
+}
+
+.type-badge {
+    font-size: 0.65rem !important;
+    padding: 4px 10px !important;
+    border-radius: 6px !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.time-text {
+    font-size: 0.75rem;
+    color: #a0aec0;
+}
+
+.btn-check-mark {
+    color: #cbd5e0;
+    transition: color 0.2s;
+}
+
+.btn-check-mark:hover {
+    color: #4ccb7a;
+}
+
+.btn-clear {
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 8px 20px;
+}
+
+.empty-state .empty-icon-box {
+    width: 100px;
+    height: 100px;
+    background: #edf2f7;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
